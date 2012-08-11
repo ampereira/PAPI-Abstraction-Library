@@ -40,4 +40,4 @@ class PAL {
 	void stopwatch_usec_print_to_file(const char*);
 	void papi_init_totalTime(void);
 
-}
+};
