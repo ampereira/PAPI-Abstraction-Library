@@ -1,0 +1,16 @@
+This file is reserved for itemize the features to develop for the library.
+
+List of current features to develop:
+
+	* Implementation of a scalable data structure to hold intermediate results;
+	* Enhance the multithread measurements support for easier user interaction;
+	* Provide more statistics:
+		* Per thread and global outputs;
+		* Meadian calculation;
+		* Standard deviation calculation;
+	* Receive a list of counters to measure:
+		* Creating event sets;
+		* Handling conflicts;
+	* Receive the function to test and number of runs per counter:
+		* Automatically executing all measurements;
+	* General improvement of code.
