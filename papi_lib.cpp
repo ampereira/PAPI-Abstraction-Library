@@ -472,7 +472,7 @@ public:
 
 	int create_events (std::vector< string > evts) {
 		int size = evts.size();
-		vector event_codes (size);
+		vector< int > event_codes (size);
 
 		for (vector< string > it = evts.begin(); it < evts.end(); ++it) {
 			int ev, retval;
@@ -482,7 +482,10 @@ public:
 				char error[PAPI_MAX_STR_LEN];
 				PAPI_perror(retval, error, PAPI_MAX_STR_LEN);
 
-				cout << 
+				cout << "PAL: error on counter " << *it << " - " << error << endl;
+				cout << "PAL: counter will not be added to the measurements." << endl;
+			} else {
+				event_codes.push_back(ev);
 			}
 		}
 
