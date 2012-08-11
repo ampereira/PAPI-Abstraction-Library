@@ -11,6 +11,7 @@ List of current features to develop:
 	* Receive a list of counters to measure:
 		* Creating event sets;
 		* Handling conflicts;
+		* Later measuring only the available counters;
 	* Receive the function to test and number of runs per counter:
 		* Automatically executing all measurements;
 	* General improvement of code.
