@@ -43,7 +43,8 @@ bool PAL::create_events (vector< string > evts) {
 			}
 		}
 
-		retval = PAPI_add_event(eventset.back(), event_codes[it]);
+		//retval = PAPI_add_event(eventset.back(), event_codes[it]);
+		retval = PAPI_add_event(eventset.back(), PAPI_TOT_CYC);
 
 		cout << "coisas " << eventset.back() << " " << event_codes[it] << endl;
 
