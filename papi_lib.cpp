@@ -42,14 +42,14 @@ bool PAL::create_events (vector< string > evts) {
 				return false;
 			}
 		}
-
+		eventset.push_back(-1000);
 		retval = PAPI_add_event(eventset.back(), *it);
 
 		cout << "coisas " << eventset.back() << " " << *it << endl;
 
 		switch (retval) {
 			case PAPI_OK 	  : break;
-			case PAPI_ECNFLCT : conflict = true; break;
+			case PAPI_ECNFLCT : conflict = true; break; // se isto acontece o iterator nao pode ser incrementado...
 			default : PAPI_perror(retval, error, PAPI_MAX_STR_LEN);
 					  cerr << "PAL | error adding counter to eventset - " << error << endl;
 					  cerr << "PAL | library will exit." << endl;
