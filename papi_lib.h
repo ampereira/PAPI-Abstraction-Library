@@ -45,6 +45,6 @@ class PAL {
 
 public:
 
-	bool create_events (std::vector< string >);
+	bool create_events (std::vector< string > evts);
 
 };
