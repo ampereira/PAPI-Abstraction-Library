@@ -33,7 +33,7 @@ bool PAL::create_events (vector< string > evts) {
 			if (conflict)
 				conflict = false;
 
-		cout << "coisas" << endl;
+		cout << "coisas " << retval << endl;
 
 			if (retval != PAPI_OK) {
 				PAPI_perror(retval, error, PAPI_MAX_STR_LEN);
