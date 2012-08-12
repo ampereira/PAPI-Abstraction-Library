@@ -50,7 +50,8 @@ bool PAL::create_events (vector< string > evts) {
 		switch (retval) {
 			case PAPI_OK 	  : break;
 			case PAPI_ECNFLCT : conflict = true; break;
-			default : cerr << "PAL | error adding counter to eventset - " << error << endl;
+			default : PAPI_perror(retval, error, PAPI_MAX_STR_LEN);
+					  cerr << "PAL | error adding counter to eventset - " << error << endl;
 					  cerr << "PAL | library will exit." << endl;
 					  return false;
 		}
