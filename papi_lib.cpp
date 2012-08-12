@@ -11,7 +11,7 @@ bool PAL::create_events (std::vector< string > evts) {
 	// Creates the counters from their names
 	for (vector< string >::iterator it = evts.begin(); it < evts.end(); ++it) {
 		int ev;
-		ev_name = it->c_str();
+		ev_name = (char *) it->c_str();
 		retval = PAPI_event_name_to_code (ev_name, &ev);
 
 		if (retval != PAPI_OK) {
