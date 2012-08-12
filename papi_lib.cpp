@@ -255,7 +255,7 @@ void papi_init_counter_arrays(void){
 	}
 }
 
-int create_events(Name_Events ***name_events2, int *length_events2, int **length2,
+int create_events2(Name_Events ***name_events2, int *length_events2, int **length2,
 		int **EventSet2, long long *** values2, int var) ;
 
 void papi_private_init(int var){
@@ -388,7 +388,7 @@ void papi_stop_event () {
 // creates the events one wants to measure
 // returns the number of such events, or better, the nbr of times 
 // the code being measured has to be repeated to measure all events
-int create_events(Name_Events ***name_events2, int *length_events2, int **length2,
+int create_events2(Name_Events ***name_events2, int *length_events2, int **length2,
 		int **EventSet2, long long *** values2, int var) {
 
 	Name_Events **aux_name_events;
