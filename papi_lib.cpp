@@ -21,7 +21,7 @@ bool PAL::create_events (vector< string > evts) {
 			cerr << "PAL | counter will not be added to the measurements." << endl;
 		} else {
 			event_codes.push_back(ev);
-		cout << "lol " << retval << " " << ev << endl;
+		cout << "lol " << retval << " " << event.back() << endl;
 		}
 	}
 	// Creates the eventsets from the counters - tries to group compatible counters
