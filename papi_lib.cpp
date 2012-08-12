@@ -3,16 +3,15 @@
 using namespace std;
 
 bool PAL::create_events (std::vector< string > evts) {
-	int size = evts.size(), retval, index = 0;
+	int size = evts.size(), retval;
 	vector< int > event_codes (size);
-	char error[PAPI_MAX_STR_LEN], *ev_name;
+	char error[PAPI_MAX_STR_LEN];
 	bool conflict = false;
 
 	// Creates the counters from their names
 	for (vector< string >::iterator it = evts.begin(); it < evts.end(); ++it) {
 		int ev;
-		ev_name = (char *) it->c_str();
-		retval = PAPI_event_name_to_code (ev_name, &ev);
+		retval = PAPI_event_name_to_code ((char *) it->c_str(), &ev);
 
 		if (retval != PAPI_OK) {
 			PAPI_perror(retval, error, PAPI_MAX_STR_LEN);
