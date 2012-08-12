@@ -14,6 +14,8 @@ bool PAL::create_events (vector< string > evts) {
 		int ev;
 		retval = PAPI_event_name_to_code ((char *) it->c_str(), &ev);
 
+		cout << "coisas" << endl;
+
 		if (retval != PAPI_OK) {
 			PAPI_perror(retval, error, PAPI_MAX_STR_LEN);
 
