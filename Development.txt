@@ -14,4 +14,7 @@ List of current features to develop:
 		* Later measuring only the available counters;
 	* Receive the function to test and number of runs per counter:
 		* Automatically executing all measurements;
-	* General improvement of code.
+	* Receive a functor to profile;
+	* General improvement of code;
+	* Implement CSV output;
+	* Compile with CMake.

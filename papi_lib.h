@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
+#include <string.h>
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
@@ -39,5 +40,11 @@ class PAL {
 	unsigned long long stop_stopwatch_usec(void);
 	void stopwatch_usec_print_to_file(const char*);
 	void papi_init_totalTime(void);
+
+	std::vector< int > eventset;
+
+public:
+
+	bool create_events (std::vector< string >);
 
 };
