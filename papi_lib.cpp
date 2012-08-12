@@ -22,9 +22,10 @@ bool PAL::create_events (vector< string > evts) {
 		} else {
 			event_codes.push_back(ev);
 		}
+		cout << it << endl;
 	}
 	// Creates the eventsets from the counters - tries to group compatible counters
-	for (int it = 0; it < event_codes.size(); ++it) {
+	for (unsigned it = 0; it < event_codes.size(); ++it) {
 		if (eventset.size() == 0 || conflict){
 			eventset.push_back(PAPI_NULL);
 			retval = PAPI_create_eventset(&eventset.back());
