@@ -31,14 +31,15 @@ bool PAL::create_events (std::vector< string > evts) {
 
 			if (conflict)
 				conflict = false;
-		}
-		if (retval != PAPI_OK) {
-			PAPI_perror(retval, error, PAPI_MAX_STR_LEN);
 
-			cerr << "PAL | could not create eventset - " << error << endl;
-			cerr << "PAL | library will exit." << endl;
+			if (retval != PAPI_OK) {
+				PAPI_perror(retval, error, PAPI_MAX_STR_LEN);
 
-			return false;
+				cerr << "PAL | could not create eventset - " << error << endl;
+				cerr << "PAL | library will exit." << endl;
+
+				return false;
+			}
 		}
 
 		retval = PAPI_add_event(eventset.back(), *it);
@@ -51,4 +52,6 @@ bool PAL::create_events (std::vector< string > evts) {
 					  return false;
 		}
 	}
+
+	return true;
 }
