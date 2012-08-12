@@ -21,8 +21,8 @@ bool PAL::create_events (vector< string > evts) {
 			cerr << "PAL | counter will not be added to the measurements." << endl;
 		} else {
 			event_codes.push_back(ev);
-		}
 		cout << *it << " " << ev << endl;
+		}
 	}
 	// Creates the eventsets from the counters - tries to group compatible counters
 	for (unsigned it = 0; it < event_codes.size(); ++it) {
@@ -43,8 +43,7 @@ bool PAL::create_events (vector< string > evts) {
 			}
 		}
 
-		//retval = PAPI_add_event(eventset.back(), event_codes[it]);
-		retval = PAPI_add_event(eventset.back(), PAPI_TOT_CYC);
+		retval = PAPI_add_event(eventset.back(), event_codes[it]);
 
 		cout << "coisas " << eventset.back() << " " << event_codes[it] << endl;
 
