@@ -25,11 +25,11 @@ bool PAL::create_events (vector< string > evts) {
 	}
 	// Creates the eventsets from the counters - tries to group compatible counters
 	for (vector< int >::iterator it = event_codes.begin(); it < event_codes.end(); ++it) {
-			int coisas = 0;
+			int *coisas = PAPI_NULL;
 		if (eventset.size() == 0 || conflict){
 			eventset.push_back(-1);
 			//retval = PAPI_create_eventset(&eventset.back());
-			retval = PAPI_create_eventset(&coisas);
+			retval = PAPI_create_eventset(coisas);
 
 			if (conflict)
 				conflict = false;
