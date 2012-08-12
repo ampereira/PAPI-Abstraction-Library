@@ -46,7 +46,7 @@ int coisas;
 
 		retval = PAPI_add_event(coisas, *it);
 
-		cout << "coisas " << coisas << " " << it << endl;
+		cout << "coisas " << coisas << " " << *it << endl;
 
 		switch (retval) {
 			case PAPI_OK 	  : break;
