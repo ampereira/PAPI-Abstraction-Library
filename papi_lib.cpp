@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// TODO: Contadores repetidos? e se todos errados?
 bool PAL::create_events (vector< string > evts) {
 	int size = evts.size(), retval;
 	vector< int > event_codes (size);
@@ -54,4 +55,21 @@ bool PAL::create_events (vector< string > evts) {
 	}
 
 	return true;
+}
+
+int main(void){
+        PAL *pal = new PAL();
+
+        vector< string > st;
+        string st1 = "PAPI_TOT_CYC";
+        string st2 = "PAPI_TOT_INS";
+        string st3 = "PAPI_L2_DCM";
+
+        st.push_back(st1);
+        st.push_back(st2);
+        st.push_back(st3);
+
+        pal->create_events(st);
+
+        return 0;
 }
