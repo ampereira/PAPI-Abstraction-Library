@@ -22,7 +22,7 @@ bool PAL::create_events (vector< string > evts) {
 		} else {
 			event_codes.push_back(ev);
 		}
-		cout << *it << endl;
+		cout << *it << " " << ev << endl;
 	}
 	// Creates the eventsets from the counters - tries to group compatible counters
 	for (unsigned it = 0; it < event_codes.size(); ++it) {
