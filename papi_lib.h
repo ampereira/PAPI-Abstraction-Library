@@ -23,8 +23,6 @@ typedef struct struct_name_events {
     int valor; 
 }*Name_Events, Valor_Name_Events;
 
-class PAL {
-
 	int papi_thread_support_init(unsigned long int (*handle)());
 	void papi_print_results_to_file(const char*);
 	unsigned long long papi_counter_sum(unsigned long long);
@@ -40,6 +38,8 @@ class PAL {
 	unsigned long long stop_stopwatch_usec(void);
 	void stopwatch_usec_print_to_file(const char*);
 	void papi_init_totalTime(void);
+
+class PAL {
 
 	std::vector< int > eventset;
 
