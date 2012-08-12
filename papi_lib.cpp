@@ -45,7 +45,7 @@ bool PAL::create_events (vector< string > evts) {
 
 		retval = PAPI_add_event(eventset.back(), *it);
 
-		cout << "coisas " << retval << endl;
+		cout << "coisas " << eventset.back() << " " << *it << endl;
 
 		switch (retval) {
 			case PAPI_OK 	  : break;
