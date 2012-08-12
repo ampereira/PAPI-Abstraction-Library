@@ -69,6 +69,8 @@ int main(void){
         st.push_back(st2);
         st.push_back(st3);
 
+        PAPI_library_init(PAPI_VER_CURRENT);
+
         pal->create_events(st);
 
         return 0;
