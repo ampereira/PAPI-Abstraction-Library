@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool PAL::create_events (std::vector< string > evts) {
+bool PAL::create_events (vector< string > evts) {
 	int size = evts.size(), retval;
 	vector< int > event_codes (size);
 	char error[PAPI_MAX_STR_LEN];

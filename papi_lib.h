@@ -12,7 +12,6 @@ public:
 
 	std::vector< int > eventset;
 
-
-	bool create_events (std::vector< std::string > evts);
+	bool create_events (std::vector< std::string >);
 
 };
