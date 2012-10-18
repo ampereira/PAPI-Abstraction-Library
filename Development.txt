@@ -1,7 +1,6 @@
 This file is reserved for itemize the features to develop for the library.
 
 List of current features to develop:
-
 	* Implementation of a scalable data structure to hold intermediate results;
 	* Enhance the multithread measurements support for easier user interaction;
 	* Provide more statistics:
@@ -18,3 +17,11 @@ List of current features to develop:
 	* General improvement of code;
 	* Implement CSV output;
 	* Compile with CMake.
+
+Technical requirements:
+	* Class for error management (including I/O information);
+	* PAL will be a namespace;
+	* Add multiplexing;
+	* Add Doxygen documentation;
+
+Estado: acabar de adicionar os eventos com nome para depois imprimir. comecar a fazer o start e stop

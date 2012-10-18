@@ -6,7 +6,7 @@ using namespace std;
 bool PAL::create_events (vector< string > evts) {
 	int size = evts.size(), retval;
 	vector< int > event_codes (size);
-	char error[PAPI_MAX_STR_LEN];
+	char *error;
 	bool conflict = false;
 
 	// Creates the counters from their names
@@ -15,26 +15,29 @@ bool PAL::create_events (vector< string > evts) {
 		retval = PAPI_event_name_to_code ((char *) it->c_str(), &ev);
 
 		if (retval != PAPI_OK) {
-			PAPI_perror(retval, error, PAPI_MAX_STR_LEN);
+			error = PAPI_strerror(retval);
 
 			cerr << "PAL | error on counter " << *it << " - " << error << endl;
 			cerr << "PAL | counter will not be added to the measurements." << endl;
 		} else {
 			event_codes.push_back(ev);
-		cout << "lol " << retval << " " << event_codes.back() << endl;
 		}
 	}
+
 	// Creates the eventsets from the counters - tries to group compatible counters
 	for (unsigned it = 0; it < event_codes.size(); ++it) {
-		if (eventset.size() == 0 || conflict){
-			eventset.push_back(PAPI_NULL);
+		if (eventset_size == 0 || conflict){
+			eventset(PAPI_NULL);
+			++eventset_size;
+
+			cout << "evset " << PAPI_NULL << " " << eventset.back() << endl;
 			retval = PAPI_create_eventset(&eventset.back());
 
 			if (conflict)
 				conflict = false;
 
 			if (retval != PAPI_OK) {
-				PAPI_perror(retval, error, PAPI_MAX_STR_LEN);
+				error = PAPI_strerror(retval);
 
 				cerr << "PAL | could not create eventset - " << error << endl;
 				cerr << "PAL | library will exit." << endl;
@@ -42,15 +45,14 @@ bool PAL::create_events (vector< string > evts) {
 				return false;
 			}
 		}
+		cout << "coisas " << eventset.back() << " " << event_codes[it] << " " << PAPI_TOT_INS << endl;
 
 		retval = PAPI_add_event(eventset.back(), event_codes[it]);
-
-		cout << "coisas " << eventset.back() << " " << event_codes[it] << endl;
 
 		switch (retval) {
 			case PAPI_OK 	  : break;
 			case PAPI_ECNFLCT : conflict = true; break; // se isto acontece o iterator nao pode ser incrementado...
-			default : PAPI_perror(retval, error, PAPI_MAX_STR_LEN);
+			default : error = PAPI_strerror(retval);
 					  cerr << "PAL | error adding counter to eventset - " << error << endl;
 					  cerr << "PAL | library will exit." << endl;
 					  return false;
