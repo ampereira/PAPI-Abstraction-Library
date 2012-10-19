@@ -7,7 +7,8 @@ EventSet::EventSet (int num_events) {
 	events_size = 0;
 }
 
-inline int EventSet::operator[] (unsigned index) {
+inline 
+int EventSet::operator[] (unsigned index) {
 	if (index >= events_size) {
 		try {
 			throw OUT_OF_BOUNDS;
@@ -79,25 +80,4 @@ bool EventSet::create (vector<string> evts) {
 		}
 	}
 	return true;
-}
-
-int main(void){
-        EventSet pal (10);
-
-        vector< string > st;
-        string st1 = "PAPI_TOT_CYC";
-        string st2 = "PAPI_L2_TCM";
-        string st3 = "PAPI_L2_DCM";
-
-        st.push_back(st1);
-        st.push_back(st2);
-        st.push_back(st3);
-
-        PAPI_library_init(PAPI_VER_CURRENT);
-
-        pal.create(st);
-        int co = pal[1];
-        cout << "operator " << co << endl;
-
-        return 0;
 }

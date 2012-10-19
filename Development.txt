@@ -19,9 +19,11 @@ List of current features to develop:
 	* Compile with CMake.
 
 Technical requirements:
+	* If counters conflict it always creates a new event - fix it!;
 	* Class for error management (including I/O information);
 	* PAL will be a namespace;
 	* Add multiplexing;
 	* Add Doxygen documentation;
+	* Add multithread support;
 
-Estado: acabar de adicionar os eventos com nome para depois imprimir. comecar a fazer o start e stop
+Estado: testar accumulators. comecar a fazer o start e stop. como medir varios eventos?

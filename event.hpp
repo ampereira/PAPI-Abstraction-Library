@@ -5,10 +5,10 @@
 #include <vector>
 
 class Event {
-public: 
-	static std::string name;
-	static int code;
+	std::string name;
+	int code;
 
+public: 
 	Event (char*, int);
 };
 

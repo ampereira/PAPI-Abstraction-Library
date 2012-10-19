@@ -10,13 +10,14 @@
 
 class EventSet {
 	int *events;
-	unsigned events_size;
+	unsigned events_size;	// amount of events
 	std::vector<Event> event_list;
 
 public:
 	EventSet (int);
 	bool create (std::vector<std::string>);
 	inline int operator[] (unsigned);
+	inline unsigned size (void) {return event_list.size(); }
 };
 
 #endif
