@@ -1,12 +1,12 @@
 #include "measure.hpp"
 
-using namespace boost::accumulators;
 using namespace std;
 
-Measure::Measure (EventSet *es) {
+Measure::Measure (EventSet *es, unsigned rp) {
 	eventset = es;
-	acc = new accumulator_set <long long unsigned, stats< STATISTICS > > [eventset->size()];
 	event_number = 0;
+	event_rep = 0;
+	repetitions = rp;
 }
 
 // cada vez que se executa o par start stop mede um evento
@@ -51,9 +51,18 @@ bool Measure::stop (void) {
 			++event_number;
 			return false;
 		} else {
-			acc[event_number++]((unsigned) counter_value);
+			eventset->get_event(event_number)->add((unsigned) counter_value);
+
+			if (event_rep < repetitions)
+				++event_rep;
+			else {
+				event_rep = 0;
+				++event_number;
+			}
+
 			return true;
 		}
+
 	} else {
 		cerr << "PAL | Measure: all events were already measured." << endl;
 		return false;
@@ -67,8 +76,12 @@ void Measure::print (void) {
 	cout << "Counter\t\tMin\tMean\tMedian" << endl;
 
 	for (unsigned i = 0; i < (unsigned) eventset->size(); ++i) {
-		cout << eventset->get_event(i).get_name() << "\t";
-		cout << boost::accumulators::min(acc[i]) << "\t";
-		cout << mean(acc[i]) << "\t" << median(acc[i]) << endl;
+		Event *evt = eventset->get_event(i);
+		cout << evt->get_name() << "\t" << evt->min() << "\t";
+		cout << evt->mean() << "\t" << evt->median() << endl;
 	}
+}
+
+unsigned Measure::iterations (void) {
+	return eventset->number_of_events() * repetitions;
 }

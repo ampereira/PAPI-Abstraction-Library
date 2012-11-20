@@ -19,7 +19,8 @@ public:
 	bool create (std::vector<std::string>);
 	/*inline*/ int operator[] (unsigned);
 	inline unsigned size (void) {return event_list.size(); }
-	Event get_event (unsigned);
+	Event* get_event (unsigned);
+	unsigned number_of_events (void);
 };
 
 #endif

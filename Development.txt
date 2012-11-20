@@ -5,7 +5,7 @@ List of current features to develop:
 	* Enhance the multithread measurements support for easier user interaction;
 	* Provide more statistics:
 		* Per thread and global outputs;
-		* Meadian calculation;
+		* Median calculation;
 		* Standard deviation calculation;
 	* Receive a list of counters to measure:
 		* Creating event sets;
@@ -26,4 +26,4 @@ Technical requirements:
 	* Add Doxygen documentation;
 	* Add multithread support;
 
-Estado: fazer repeticoes das medicoes de cada evento; eventset.cpp usar o event_list sempre que possivel
+Estado: fazer repeticoes das medicoes de cada evento; start e stop apenas funcam para 1 counter por eventset

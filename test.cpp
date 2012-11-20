@@ -21,12 +21,13 @@ int main (void) {
 
     pal.create(st);
 
-    Measure mm (&pal);
+    Measure mm (&pal, 3);
 
-    for (int i = 0; i < 3; ++i) {
-        mm.start();
+    for (unsigned i = 0; i < mm.iterations(); ++i) {
         float a = 0;
+        mm.start();
         a++;
+        ++a;
         ++a;
         mm.stop();
     }

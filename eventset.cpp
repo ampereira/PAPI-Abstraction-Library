@@ -81,10 +81,15 @@ bool EventSet::create (vector<string> evts) {
 		}
 	}
 	total_events = it;
+	cout << endl << endl;
 
 	return true;
 }
 
-Event EventSet::get_event (unsigned index) {
-	return event_list[index];
+Event* EventSet::get_event (unsigned index) {
+	return &event_list[index];
+}
+
+unsigned EventSet::number_of_events (void) {
+	return total_events;
 }
