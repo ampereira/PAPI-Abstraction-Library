@@ -10,6 +10,8 @@ class Event {
 
 public: 
 	Event (char*, int);
+	std::string get_name (void);
+	int get_code (void);
 };
 
 #endif

@@ -61,7 +61,14 @@ bool Measure::stop (void) {
 }
 
 void Measure::print (void) {
+	cout << endl << endl << endl;
+	cout << "\tPAPI Abstraction Library" << endl << endl;
+	cout << "Presenting measurements results" << endl << endl;
+	cout << "Counter\t\tMin\tMean\tMedian" << endl;
+
 	for (unsigned i = 0; i < (unsigned) eventset->size(); ++i) {
-		cout << "Mean: " << mean(acc[i]) << endl;
+		cout << eventset->get_event(i).get_name() << "\t";
+		cout << boost::accumulators::min(acc[i]) << "\t";
+		cout << mean(acc[i]) << "\t" << median(acc[i]) << endl;
 	}
 }

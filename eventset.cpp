@@ -4,16 +4,16 @@ using namespace std;
 
 EventSet::EventSet (int num_events) {
 	events = new int [num_events];
-	events_size = 0;
+	eventset_size = 0;
 }
 
 //inline 
 int EventSet::operator[] (unsigned index) {
-	if (index >= events_size) {
+	if (index >= total_events) {
 		try {
 			throw OUT_OF_BOUNDS;
 		} catch (Error e) {
-			cerr << "PAL | EventSet: index out of bounds: " << index << endl;
+			cerr << "PAL | EventSet: index out of bounds: " << index << ", max is " << total_events - 1 << endl;
 			cerr << "PAL | EventSet: at file " << __FILE__ << ", line " << __LINE__ - 5 << endl;
 		}
 		return -1;
@@ -49,11 +49,11 @@ bool EventSet::create (vector<string> evts) {
 	// problema: if conflict cria eventset novo antes de ver se da nos restantes
 	unsigned it = 0;
 	while (it < size) {
-		if (events_size == 0 || conflict){
-			events[events_size] = PAPI_NULL;
-			++events_size;
+		if (eventset_size == 0 || conflict){
+			events[eventset_size] = PAPI_NULL;
+			++eventset_size;
 
-			retval = PAPI_create_eventset(&events[events_size - 1]);
+			retval = PAPI_create_eventset(&events[eventset_size - 1]);
 
 			if (conflict)
 				conflict = false;
@@ -68,16 +68,23 @@ bool EventSet::create (vector<string> evts) {
 			}
 		}
 
-		retval = PAPI_add_event(events[events_size - 1], event_codes[it]);
+		retval = PAPI_add_event(events[eventset_size - 1], event_codes[it]);
 
 		switch (retval) {
-			case PAPI_OK 	  : ++it; break;
+			case PAPI_OK 	  : cout << "PAL | EventSet: Counter " << event_list[it++].get_name() << " added successfully." << endl;
+								break;
 			case PAPI_ECNFLCT : conflict = true; break;
 			default : error = PAPI_strerror(retval);
-					  cerr << "PAL | EventSet: error adding counter to eventset - " << error << endl;
+					  cerr << "PAL | EventSet: error adding counter " << event_list[it].get_name() << " to eventset - " << error << endl;
 					  cerr << "PAL | EventSet: library will exit." << endl;
 					  return false;
 		}
 	}
+	total_events = it;
+
 	return true;
+}
+
+Event EventSet::get_event (unsigned index) {
+	return event_list[index];
 }

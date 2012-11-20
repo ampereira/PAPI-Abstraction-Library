@@ -6,7 +6,7 @@
 using namespace std;
 
 int main (void) {
-    EventSet pal (10);
+    EventSet pal (3);
 
     vector< string > st;
     string st1 = "PAPI_FP_OPS";
@@ -25,9 +25,9 @@ int main (void) {
 
     for (int i = 0; i < 3; ++i) {
         mm.start();
-            float a = 0;
-            a++;
-            ++a;
+        float a = 0;
+        a++;
+        ++a;
         mm.stop();
     }
 
