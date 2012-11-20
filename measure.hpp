@@ -15,11 +15,13 @@ using namespace boost::accumulators;
 class Measure {
 	EventSet *eventset;
 	accumulator_set <long long unsigned, stats< STATISTICS > > *acc;	// to hold the measurement data for each counter
+	unsigned event_number;
 
 public:
 	Measure (EventSet*);
-	bool start ();
-	bool stop ();
+	bool start (void);
+	bool stop (void);
+	void print (void);
 };
 
 #endif

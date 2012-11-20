@@ -7,14 +7,14 @@ EventSet::EventSet (int num_events) {
 	events_size = 0;
 }
 
-inline 
+//inline 
 int EventSet::operator[] (unsigned index) {
 	if (index >= events_size) {
 		try {
 			throw OUT_OF_BOUNDS;
 		} catch (Error e) {
-			cerr << "PAL | index out of bounds: " << index << endl;
-			cerr << "PAL | at file " << __FILE__ << ", line " << __LINE__ - 5 << endl;
+			cerr << "PAL | EventSet: index out of bounds: " << index << endl;
+			cerr << "PAL | EventSet: at file " << __FILE__ << ", line " << __LINE__ - 5 << endl;
 		}
 		return -1;
 	} else
@@ -35,8 +35,8 @@ bool EventSet::create (vector<string> evts) {
 		if (retval != PAPI_OK) {
 			error = PAPI_strerror(retval);
 
-			cerr << "PAL | error on counter " << *it << " - " << error << endl;
-			cerr << "PAL | counter will not be added to the measurements." << endl;
+			cerr << "PAL | EventSet: error on counter " << *it << " - " << error << endl;
+			cerr << "PAL | EventSet: counter will not be added to the measurements." << endl;
 		} else {
 			Event evn ((char*) it->c_str(), ev);
 			event_list.push_back(evn);
@@ -61,8 +61,8 @@ bool EventSet::create (vector<string> evts) {
 			if (retval != PAPI_OK) {
 				error = PAPI_strerror(retval);
 
-				cerr << "PAL | could not create eventset - " << error << endl;
-				cerr << "PAL | library will exit." << endl;
+				cerr << "PAL | EventSet: could not create eventset - " << error << endl;
+				cerr << "PAL | EventSet: library will exit." << endl;
 
 				return false;
 			}
@@ -74,8 +74,8 @@ bool EventSet::create (vector<string> evts) {
 			case PAPI_OK 	  : ++it; break;
 			case PAPI_ECNFLCT : conflict = true; break;
 			default : error = PAPI_strerror(retval);
-					  cerr << "PAL | error adding counter to eventset - " << error << endl;
-					  cerr << "PAL | library will exit." << endl;
+					  cerr << "PAL | EventSet: error adding counter to eventset - " << error << endl;
+					  cerr << "PAL | EventSet: library will exit." << endl;
 					  return false;
 		}
 	}

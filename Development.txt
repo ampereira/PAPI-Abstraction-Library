@@ -26,4 +26,4 @@ Technical requirements:
 	* Add Doxygen documentation;
 	* Add multithread support;
 
-Estado: testar accumulators. comecar a fazer o start e stop. como medir varios eventos?
+Estado: fazer repeticoes das medicoes de cada evento
