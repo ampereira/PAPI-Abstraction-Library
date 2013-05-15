@@ -25,7 +25,7 @@ pal_lib: event.o eventset.o errors.o measure.o
 	$(CXX) -shared -Wl,-soname,libpal.so.1 -o libpal.so event.o eventset.o errors.o measure.o $(PAPI_FLAGS)
 
 test: pal_lib main.cpp
-	$(CXX) $(CXX_FLAGS) -o main -L. -lpal
+	$(CXX) $(CXX_FLAGS) -o a.out -L. -lpal
 
 clean:
-	rm -f *.o libpal.so.*
+	rm -f *.o libpal.so*
