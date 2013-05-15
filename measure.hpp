@@ -10,7 +10,7 @@ class Measure {
 	unsigned repetitions;
 
 public:
-	Measure (EventSet, unsigned);
+	Measure (EventSet&, unsigned);
 	bool start (void);
 	bool stop (void);
 	void print (void);
