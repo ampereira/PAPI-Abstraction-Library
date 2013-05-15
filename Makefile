@@ -18,11 +18,8 @@ eventset.o: eventset.cpp eventset.hpp event.hpp errors.hpp
 measure.o: measure.cpp measure.hpp eventset.hpp
 	$(CXX) $(CXX_FLAGS) -c measure.cpp $(PAPI_FLAGS)
 
-test.o: test.cpp measure.hpp
-	$(CXX) $(CXX_FLAGS) -c test.cpp
-
 pal.o: event.o eventset.o errors.o measure.o test.o
-	$(CXX) $(CXX_FLAGS) -c -fPIC eventset.o event.o errors.o measure.o test.o -o pal.o $(PAPI_FLAGS)
+	$(CXX) $(CXX_FLAGS) -c -fPIC eventset.o event.o errors.o measure.o -o pal.o $(PAPI_FLAGS)
 
 pal_lib: pal.o
 	$(CXX) -shared -Wl,-soname,libpal.so.1 -o libpal.so.1.0.1 pal.o
