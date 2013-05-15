@@ -28,4 +28,4 @@ test: pal_lib main.cpp
 	$(CXX) $(CXX_FLAGS) -o main -L. -lpal
 
 clean:
-	rm -f *.o
+	rm -f *.o libpal.so.*
