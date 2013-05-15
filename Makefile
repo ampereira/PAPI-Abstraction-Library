@@ -31,4 +31,4 @@ test: pal_lib main.cpp
 	$(CXX) $(CXX_FLAGS) -o main -L. -lpal
 
 clean:
-	rm -rf *.o
+	rm -f *.o

@@ -1,13 +1,14 @@
 #ifndef EVENT
 #define EVENT
 
-#include <string>
-#include <vector>
 #include <boost/accumulators/accumulators.hpp>
 #include <boost/accumulators/statistics/stats.hpp>
 #include <boost/accumulators/statistics/mean.hpp>
 #include <boost/accumulators/statistics/min.hpp>
 #include <boost/accumulators/statistics/median.hpp>
+
+#include <string>
+#include <vector>
 
 #define STATISTICS tag::mean, tag::min, tag::median
 
