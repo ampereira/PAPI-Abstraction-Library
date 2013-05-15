@@ -7,6 +7,11 @@ EventSet::EventSet (int num_events) {
 	eventset_size = 0;
 }
 
+EventSet::EventSet () {
+	events = new int [1];
+	eventset_size = 0;
+}
+
 //inline 
 int EventSet::operator[] (unsigned index) {
 	if (index >= total_events) {
