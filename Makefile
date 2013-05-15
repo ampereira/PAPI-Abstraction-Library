@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CXX = g++
-CXX_FLAGS = -Wall -Wextra -I/home/cpd19828/boost_1_50_0/ -L/home/cpd19828/boost_1_50_0/stage/lib
+CXX_FLAGS = -Wall -Wextra -fPIC -I/home/cpd19828/boost_1_50_0/ -L/home/cpd19828/boost_1_50_0/stage/lib
 PAPI_FLAGS = -lpapi
 
 default: pal_lib
@@ -18,11 +18,11 @@ eventset.o: eventset.cpp eventset.hpp event.hpp errors.hpp
 measure.o: measure.cpp measure.hpp eventset.hpp
 	$(CXX) $(CXX_FLAGS) -c measure.cpp $(PAPI_FLAGS)
 
-pal.o: event.o eventset.o errors.o measure.o test.o
-	$(CXX) $(CXX_FLAGS) -c -fPIC eventset.o event.o errors.o measure.o -o pal.o $(PAPI_FLAGS)
+pal.o: event.o eventset.o errors.o measure.o
+	$(CXX) $(CXX_FLAGS) -c eventset.o event.o errors.o measure.o -o pal.o $(PAPI_FLAGS)
 
-pal_lib: pal.o
-	$(CXX) -shared -Wl,-soname,libpal.so.1 -o libpal.so.1.0.1 pal.o
+pal_lib: event.o eventset.o errors.o measure.o
+	$(CXX) -shared -Wl,-soname,libpal.so.1 -o libpal.so.1.0.1 event.o eventset.o errors.o measure.o $(PAPI_FLAGS)
 
 test: pal_lib main.cpp
 	$(CXX) $(CXX_FLAGS) -o main -L. -lpal
