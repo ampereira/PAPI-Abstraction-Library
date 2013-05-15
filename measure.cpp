@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Measure::Measure (EventSet *es, unsigned rp) {
+Measure::Measure (EventSet &es, unsigned rp) {
 	eventset = es;
 	event_number = 0;
 	event_rep = 0;
@@ -15,8 +15,8 @@ bool Measure::start (void) {
 	int retval;
 	char *error;
 
-	if (event_number <= eventset->size()) {
-		retval = PAPI_start((*eventset)[event_number]);
+	if (event_number <= eventset.size()) {
+		retval = PAPI_start(eventset[event_number]);
 
 		if (retval != PAPI_OK) {
 			error = PAPI_strerror(retval);
@@ -39,8 +39,8 @@ bool Measure::stop (void) {
 	char *error;
 	long long int counter_value;
 
-	if (event_number <= eventset->size()) {
-		retval = PAPI_stop((*eventset)[event_number], &counter_value);
+	if (event_number <= eventset.size()) {
+		retval = PAPI_stop(eventset[event_number], &counter_value);
 
 		if (retval != PAPI_OK) {
 			error = PAPI_strerror(retval);
@@ -51,7 +51,7 @@ bool Measure::stop (void) {
 			++event_number;
 			return false;
 		} else {
-			eventset->get_event(event_number)->add((unsigned) counter_value);
+			eventset.get_event(event_number).add((unsigned) counter_value);
 
 			if (event_rep < repetitions)
 				++event_rep;
@@ -75,10 +75,10 @@ void Measure::print (void) {
 	cout << "Presenting measurements results" << endl << endl;
 	cout << "Counter\t\tMin\tMean\tMedian" << endl;
 
-	for (unsigned i = 0; i < (unsigned) eventset->size(); ++i) {
-		Event *evt = eventset->get_event(i);
-		cout << evt->get_name() << "\t" << evt->min() << "\t";
-		cout << evt->mean() << "\t" << evt->median() << endl;
+	for (unsigned i = 0; i < (unsigned) eventset.size(); ++i) {
+		Event *evt = eventset.get_event(i);
+		cout << evt.get_name() << "\t" << evt.min() << "\t";
+		cout << evt.mean() << "\t" << evt.median() << endl;
 	}
 }
 

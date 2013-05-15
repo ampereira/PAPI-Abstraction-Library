@@ -2,14 +2,15 @@
 #define MEASURE
 
 #include "eventset.hpp"
+
 class Measure {
-	EventSet *eventset;
+	EventSet eventset;
 	unsigned event_number;
 	unsigned event_rep;
 	unsigned repetitions;
 
 public:
-	Measure (EventSet*, unsigned);
+	Measure (EventSet, unsigned);
 	bool start (void);
 	bool stop (void);
 	void print (void);
