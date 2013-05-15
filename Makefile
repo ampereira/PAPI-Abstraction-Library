@@ -4,7 +4,7 @@ CXX = g++
 CXX_FLAGS = -Wall -Wextra
 PAPI_FLAGS = -lpapi
 
-default: pal
+default: pal_lib
 
 errors.o: errors.cpp errors.hpp
 	$(CXX) $(CXX_FLAGS) -c errors.cpp
@@ -21,8 +21,14 @@ measure.o: measure.cpp measure.hpp eventset.hpp
 test.o: test.cpp measure.hpp
 	$(CXX) $(CXX_FLAGS) -c test.cpp
 
-pal: event.o eventset.o errors.o measure.o test.o
-	$(CXX) $(CXX_FLAGS) eventset.o event.o errors.o measure.o test.o -o pal $(PAPI_FLAGS)
+pal.o: event.o eventset.o errors.o measure.o test.o
+	$(CXX) $(CXX_FLAGS) -c -fPIC eventset.o event.o errors.o measure.o test.o -o pal.o $(PAPI_FLAGS)
+
+pal_lib: pal.o
+	$(CXX) -shared -Wl,-soname,libpal.so.1 -o libpal.so.1.0.1 pal.o
+
+test: pal_lib main.cpp
+	$(CXX) $(CXX_FLAGS) -o main -L. -lpal
 
 clean:
 	rm -rf *.o
