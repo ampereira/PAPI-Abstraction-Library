@@ -25,7 +25,7 @@ pal_lib: event.o eventset.o errors.o measure.o
 	$(CXX) -shared -Wl,-soname,libpal.so.1 -o libpal.so.1.0.1 event.o eventset.o errors.o measure.o $(PAPI_FLAGS)
 
 test: pal_lib main.cpp
-	$(CXX) $(CXX_FLAGS) -o main -L. -lpal
+	$(CXX) $(CXX_FLAGS) -o main -L/home/cpd19828/PAPI-Abstraction-Library -lpal
 
 clean:
 	rm -f *.o libpal.so.*
