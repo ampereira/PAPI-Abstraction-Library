@@ -76,7 +76,7 @@ void Measure::print (void) {
 	cout << "Counter\t\tMin\tMean\tMedian" << endl;
 
 	for (unsigned i = 0; i < (unsigned) eventset.size(); ++i) {
-		Event *evt = eventset.get_event(i);
+		Event evt = eventset.get_event(i);
 		cout << evt.get_name() << "\t" << evt.min() << "\t";
 		cout << evt.mean() << "\t" << evt.median() << endl;
 	}
