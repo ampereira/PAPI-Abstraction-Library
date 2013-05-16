@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <string>
 using namespace std;
+
 int main(void){
 	PAL *pal = new PAL();
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CXX = g++
-CXX_FLAGS = -Wall -Wextra -fPIC -I/home/cpd19828/boost_1_50_0/ -L/home/cpd19828/boost_1_50_0/stage/lib
+CXX_FLAGS = -O3 -Wall -Wextra -fPIC -I/home/cpd19828/boost_1_50_0/ -L/home/cpd19828/boost_1_50_0/stage/lib
 PAPI_FLAGS = -lpapi
 
 default: pal_lib
