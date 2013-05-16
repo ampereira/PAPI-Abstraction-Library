@@ -17,7 +17,7 @@ class EventSet {
 public:
 	EventSet ();
 	EventSet (int);
-	EventSet (std::vector<string>);
+	EventSet (std::vector<std::string>);
 	bool create (std::vector<std::string>);
 	/*inline*/ int operator[] (unsigned);
 	inline unsigned size (void) {return event_list.size(); }
