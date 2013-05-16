@@ -9,13 +9,9 @@ int main (int argc, char **argv) {
     vector< string > vst;
 
     if (argc > 1) {
-        cout << "Sample will be measured for the following counters:" << endl;
-
         for (unsigned i = 1; i < argc; ++i) {
             string st = argv[i];
             vst.push_back(st);
-
-            cout << "\t" << st << endl;
         }
     } else {
         cout << "The counters to measure must be passed as an argument!!" << endl;
@@ -28,7 +24,7 @@ int main (int argc, char **argv) {
 	EventSet pal (vst.size());
     pal.create(vst);
 
-    Measure mm (pal, 3);
+    Measure mm (pal, 1);
 
 
     for (unsigned i = 0; i < mm.iterations(); ++i) {

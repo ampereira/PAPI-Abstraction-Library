@@ -23,7 +23,7 @@ measure.o: measure.cpp measure.hpp eventset.hpp
 #	$(CXX) $(CXX_FLAGS) -c eventset.o event.o errors.o measure.o -o pal.o $(PAPI_FLAGS)
 
 pal: event.o eventset.o errors.o measure.o
-	$(CXX) -shared -Wl,-soname,libpal.so.1 -o libpal.so event.o eventset.o errors.o measure.o $(PAPI_FLAGS)
+	$(CXX) -shared -Wl,-soname,libpal.so.1 -o libpal.so.1 event.o eventset.o errors.o measure.o $(PAPI_FLAGS)
 
 test: pal test.cpp
 	$(CXX) $(CXX_FLAGS) -o test.out -L. -lpal test.cpp
