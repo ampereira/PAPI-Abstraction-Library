@@ -19,12 +19,11 @@ int main (int argc, char **argv) {
     }
 
 
-    PAPI_library_init(PAPI_VER_CURRENT);
 
 	EventSet pal (vst.size());
     pal.create(vst);
 
-    cout << pal.get_event(0).get_code() << endl;
+    cout << pal.get_event(0).get_code() << " - " <<  << endl;
 
     Measure mm (pal, 1);
 

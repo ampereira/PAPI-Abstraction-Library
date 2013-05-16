@@ -3,11 +3,15 @@
 using namespace std;
 
 EventSet::EventSet (int num_events) {
+
+    PAPI_library_init(PAPI_VER_CURRENT);
 	events = new int [num_events];
 	eventset_size = 0;
 }
 
 EventSet::EventSet (vector<string> evts) {
+
+    PAPI_library_init(PAPI_VER_CURRENT);
 	events = new int [evts.size()];
 	eventset_size = 0;
 
@@ -15,6 +19,8 @@ EventSet::EventSet (vector<string> evts) {
 }
 
 EventSet::EventSet () {
+	
+    PAPI_library_init(PAPI_VER_CURRENT);
 	events = new int [1];
 	eventset_size = 0;
 }
