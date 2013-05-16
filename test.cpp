@@ -22,6 +22,7 @@ int main (void) {
     pal.create(st);
 
     Measure mm (pal, 3);
+    
 
     for (unsigned i = 0; i < mm.iterations(); ++i) {
         float a = 0;
