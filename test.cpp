@@ -5,24 +5,31 @@
 
 using namespace std;
 
-int main (void) {
-    EventSet pal (3);
+int main (int argc, char **argv) {
+    vector< string > vst;
 
-    vector< string > st;
-    string st1 = "PAPI_FP_OPS";
-    string st2 = "PAPI_L2_TCM";
-    string st3 = "PAPI_L2_DCM";
+    if (argc > 1) {
+        cout << "Sample will be measured for the following counters:" << endl;
 
-    st.push_back(st1);
-    st.push_back(st2);
-    st.push_back(st3);
+        for (unsigned i = 1; i < argc; ++i) {
+            string st = argv[i];
+            vst.push_back(st);
+
+            cout << "\t" << st << endl;
+        }
+    } else {
+        cout << "The counters to measure must be passed as an argument!!" << endl;
+        return -1;
+    }
+
 
     PAPI_library_init(PAPI_VER_CURRENT);
 
-    pal.create(st);
+	EventSet pal (vst.size());
+    pal.create(vst);
 
     Measure mm (pal, 3);
-    
+
 
     for (unsigned i = 0; i < mm.iterations(); ++i) {
         float a = 0;
