@@ -25,7 +25,7 @@ pal: event.o eventset.o errors.o measure.o
 	$(CXX) -shared -Wl,-soname,libpal.so.1 -o libpal.so event.o eventset.o errors.o measure.o $(PAPI_FLAGS)
 
 test.o: test.cpp
-	$(CXX) $(CXX_FLAGS) -o test.out test.cpp
+	$(CXX) -O3 -Wall -Wextra -o test.out test.cpp
 
 test: pal test.o
 	$(CXX) $(CXX_FLAGS) -o a.out -L. -lpal test.o
