@@ -24,8 +24,11 @@ measure.o: measure.cpp measure.hpp eventset.hpp
 pal: event.o eventset.o errors.o measure.o
 	$(CXX) -shared -Wl,-soname,libpal.so.1 -o libpal.so event.o eventset.o errors.o measure.o $(PAPI_FLAGS)
 
-test: pal test.cpp
-	$(CXX) $(CXX_FLAGS) -o a.out -L. -lpal test.cpp
+test.o: test.cpp
+	$(CXX) $(CXX_FLAGS) -o test.out test.cpp
+
+test: pal test.o
+	$(CXX) $(CXX_FLAGS) -o a.out -L. -lpal test.o
 
 clean:
 	rm -f *.o libpal.so*
