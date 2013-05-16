@@ -24,7 +24,7 @@ int main (int argc, char **argv) {
 	EventSet pal (vst.size());
     pal.create(vst);
 
-    cout << pal[0] << endl;
+    cout << pal.get_event(0).get_code() << endl;
 
     Measure mm (pal, 1);
 
