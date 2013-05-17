@@ -51,7 +51,6 @@ bool Measure::stop (void) {
 			++event_number;
 			return false;
 		} else {
-			cout << "CHEGOU " << event_number << " - " << counter_value[event_number] << endl;
 			eventset.add_result(event_number, (long long unsigned) counter_value[event_number]);
 
 			if (event_rep < repetitions)
