@@ -22,6 +22,8 @@ int main (int argc, char **argv) {
 
 	EventSet pal (vst.size());
     pal.create(vst);
+    int a;
+    PAPI_event_name_to_code ((char *) vst[0].c_str(), &a);
 
     cout << pal.get_event(0).get_code() << " - " <<  << endl;
 
