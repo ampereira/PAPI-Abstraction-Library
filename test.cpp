@@ -22,10 +22,7 @@ int main (int argc, char **argv) {
 
 	EventSet pal (vst.size());
     pal.create(vst);
-    Measure mm (pal, 1);
-
-    cout << pal.get_event(0).get_code() << " - " << mm.get_eventset().get_event(0).get_code() << " - " << pal[0] << endl;
-
+    Measure mm (pal, 2);
 
     for (unsigned i = 0; i < mm.iterations(); ++i) {
         float a = 0;
