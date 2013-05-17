@@ -25,7 +25,7 @@ int main (int argc, char **argv) {
     int a;
     PAPI_event_name_to_code ((char *) vst[0].c_str(), &a);
 
-    cout << pal.get_event(0).get_code() << " - " <<  << endl;
+    cout << pal.get_event(0).get_code() << " - " << a << endl;
 
     Measure mm (pal, 1);
 
