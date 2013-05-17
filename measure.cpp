@@ -37,7 +37,7 @@ bool Measure::start (void) {
 bool Measure::stop (void) {
 	int retval;
 	char *error;
-	long long int *counter_value;
+	long long int counter_value [eventset.size()];
 
 	if (event_number <= eventset.size()) {
 		retval = PAPI_stop(eventset[event_number], counter_value);
