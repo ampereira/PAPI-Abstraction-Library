@@ -86,6 +86,6 @@ unsigned Measure::iterations (void) {
 	return eventset.number_of_events() * repetitions;
 }
 
-EventSet getEventSet(void) const {
+EventSet Measure::get_eventset(void) const {
 	return eventset;
 }
