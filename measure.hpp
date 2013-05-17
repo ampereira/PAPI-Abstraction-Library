@@ -15,6 +15,7 @@ public:
 	bool stop (void);
 	void print (void);
 	unsigned iterations (void);
+	EventSet getEventSet(void) const;
 };
 
 #endif

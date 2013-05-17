@@ -22,12 +22,9 @@ int main (int argc, char **argv) {
 
 	EventSet pal (vst.size());
     pal.create(vst);
-    int a;
-    PAPI_event_name_to_code ((char *) vst[0].c_str(), &a);
-
-    cout << pal.get_event(0).get_code() << " - " << PAPI_TOT_CYC << " - " << PAPI_TOT_INS << endl;
-
     Measure mm (pal, 1);
+
+    cout << pal.get_event(0).get_code() << " - " << mm.getEventSet().get_event(0).get_code() << " - " << PAPI_TOT_INS << endl;
 
 
     for (unsigned i = 0; i < mm.iterations(); ++i) {
