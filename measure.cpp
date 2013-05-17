@@ -41,6 +41,7 @@ bool Measure::stop (void) {
 
 	if (event_number <= eventset.size()) {
 		retval = PAPI_stop(eventset[event_number], &counter_value);
+		cout << "HHAHAH " << counter_value << endl;
 
 		if (retval != PAPI_OK) {
 			error = PAPI_strerror(retval);
