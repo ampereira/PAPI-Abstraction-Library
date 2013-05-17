@@ -9,7 +9,7 @@ int main (int argc, char **argv) {
     vector< string > vst;
 
     if (argc > 1) {
-        for (unsigned i = 1; i < argc; ++i) {
+        for (unsigned i = 1; i < (unsigned) argc; ++i) {
             string st = argv[i];
             vst.push_back(st);
         }
@@ -25,7 +25,7 @@ int main (int argc, char **argv) {
     int a;
     PAPI_event_name_to_code ((char *) vst[0].c_str(), &a);
 
-    cout << pal.get_event(0).get_code() << " - " << a << endl;
+    cout << pal.get_event(0).get_code() << " - " << PAPI_TOT_CYC << endl;
 
     Measure mm (pal, 1);
 
