@@ -15,7 +15,7 @@ int Event::get_code (void) {
 	return code;
 }
 
-void Event::add (long long unsigned value) {
+void Event::add_result (long long unsigned value) {
 	acc(value);
 }
 

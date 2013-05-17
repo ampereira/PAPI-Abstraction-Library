@@ -41,7 +41,6 @@ bool Measure::stop (void) {
 
 	if (event_number <= eventset.size()) {
 		retval = PAPI_stop(eventset[event_number], &counter_value);
-		cout << "HHAHAH " << counter_value << endl;
 
 		if (retval != PAPI_OK) {
 			error = PAPI_strerror(retval);
@@ -52,7 +51,7 @@ bool Measure::stop (void) {
 			++event_number;
 			return false;
 		} else {
-			eventset.get_event(event_number).add((unsigned) counter_value);
+			eventset.add_result(event_number, (long long unsigned) counter_value);
 
 			if (event_rep < repetitions)
 				++event_rep;
@@ -85,6 +84,10 @@ void Measure::print (void) {
 
 unsigned Measure::iterations (void) {
 	return eventset.number_of_events() * repetitions;
+}
+
+void Measure::add_result(unsigned index, long long unsigned value){
+	eventset.add_result(index, value);
 }
 
 EventSet Measure::get_eventset(void) const {

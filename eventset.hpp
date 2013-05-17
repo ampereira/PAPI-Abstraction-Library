@@ -23,6 +23,7 @@ public:
 	inline unsigned size (void) {return event_list.size(); }
 	Event get_event (unsigned);
 	unsigned number_of_events (void);
+	void add_result(unsigned, long long unsigned);
 };
 
 #endif

@@ -19,7 +19,7 @@ EventSet::EventSet (vector<string> evts) {
 }
 
 EventSet::EventSet () {
-	
+
     PAPI_library_init(PAPI_VER_CURRENT);
 	events = new int [1];
 	eventset_size = 0;
@@ -111,3 +111,8 @@ Event EventSet::get_event (unsigned index) {
 unsigned EventSet::number_of_events (void) {
 	return total_events;
 }
+
+void EventSet::add_result(unsigned index, long long unsigned value) {
+	event_list[index].add_result(value);
+}
+

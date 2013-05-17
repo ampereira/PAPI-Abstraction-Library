@@ -23,7 +23,7 @@ public:
 	Event (char*, int);
 	std::string get_name (void);
 	int get_code (void);
-	void add (long long unsigned);
+	void add_result (long long unsigned);
 	long long unsigned min (void);
 	long long unsigned mean (void);
 	long long unsigned median (void);
