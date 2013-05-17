@@ -24,7 +24,7 @@ int main (int argc, char **argv) {
     pal.create(vst);
     Measure mm (pal, 1);
 
-    cout << pal.get_event(0).get_code() << " - " << mm.get_eventset().get_event(0).get_code() << " - " << PAPI_TOT_INS << endl;
+    cout << pal.get_event(0).get_code() << " - " << mm.get_eventset().get_event(0).get_code() << " - " << pal[0] << endl;
 
 
     for (unsigned i = 0; i < mm.iterations(); ++i) {
