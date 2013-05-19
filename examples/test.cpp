@@ -19,6 +19,7 @@ int main (int argc, char **argv) {
     }
 
 
+        PAPI_library_init(PAPI_VER_CURRENT);
 
 	EventSet pal (vst.size());
     pal.create(vst);
