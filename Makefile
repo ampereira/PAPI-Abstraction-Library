@@ -29,7 +29,7 @@ measure.o: $(SRC_DIR)/measure.cpp $(SRC_DIR)/measure.hpp $(SRC_DIR)/eventset.hpp
 
 pal: event.o eventset.o errors.o measure.o
 	$(CXX) -shared -Wl,-soname,libpal.so -o libpal.so $(BUILD_DIR)/* $(PAPI_FLAGS)
-	@mv libpal.so $(LIB_DIR)
+	@mv libpal.so $(LIB_DIR)/libpal.so
 
 test: pal test.cpp
 	$(CXX) $(CXX_FLAGS) -o $(TEST_DIR)/test.out -L $(LIB_DIR) -lpal $(TEST_DIR)/test.cpp
