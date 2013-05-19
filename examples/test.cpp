@@ -23,9 +23,9 @@ int main (int argc, char **argv) {
 
 	EventSet pal (vst.size());
     pal.create(vst);
-    Measure mm (pal, 3);
+    Measure mm (pal);
 
-    for (unsigned i = 0; i < mm.iterations(); ++i) {
+    for (unsigned i = 0; i < 1; ++i) {
         float a = 0;
         mm.start();
         a++;
