@@ -12,7 +12,7 @@ LIB_DIR = lib
 default: pal_lib
 
 errors.o: errors.cpp errors.hpp
-	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c -o (BUILD_DIR)/$* $(SRC_DIR)/errors.cpp
+	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c -o $(BUILD_DIR)/$*.o $(SRC_DIR)/$*
 
 event.o: event.cpp event.hpp
 	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c event.cpp
