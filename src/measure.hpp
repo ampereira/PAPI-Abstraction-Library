@@ -16,6 +16,7 @@ class Measure {
 
 public:
 	Measure (EventSet&, unsigned);
+	Measure (EventSet&);
 	bool start (void);
 	bool stop (void);
 	void print (void);

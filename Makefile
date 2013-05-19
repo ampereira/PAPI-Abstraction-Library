@@ -10,11 +10,7 @@ SRC_DIR = src
 LIB_DIR = lib
 TEST_DIR = examples
 
-SOURCES = $(wildcard $(SRC_DIR)*.cpp)
-OBJECTS = $(SOURCES:.cpp=.o)
-
-
-#default: pal_lib
+default: pal
 
 errors.o: $(SRC_DIR)/errors.cpp $(SRC_DIR)/errors.hpp
 	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c -o $(BUILD_DIR)/errors.o $(SRC_DIR)/errors.cpp
