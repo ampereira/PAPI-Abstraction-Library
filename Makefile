@@ -24,11 +24,8 @@ eventset.o: $(SRC_DIR)/eventset.cpp $(SRC_DIR)/eventset.hpp $(SRC_DIR)/event.hpp
 measure.o: $(SRC_DIR)/measure.cpp $(SRC_DIR)/measure.hpp $(SRC_DIR)/eventset.hpp
 	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c -o $(BUILD_DIR)/measure.o $(SRC_DIR)/measure.cpp $(PAPI_FLAGS)
 
-#pal.o: event.o eventset.o errors.o measure.o
-#	$(CXX) $(CXX_FLAGS) -c eventset.o event.o errors.o measure.o -o pal.o $(PAPI_FLAGS)
-
 pal: event.o eventset.o errors.o measure.o
-	$(CXX) -shared -Wl,-soname,libpal.so -o libpal.so $(BUILD_DIR)/* $(PAPI_FLAGS)
+	$(CXX) -shared -Wl,-soname,libpal.so -o libpal.so $(BUILD_DIR)/*.o $(PAPI_FLAGS)
 	@mv libpal.so $(LIB_DIR)/libpal.so
 
 test: pal test.cpp
