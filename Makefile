@@ -12,7 +12,7 @@ LIB_DIR = lib
 #default: pal_lib
 
 $*.cpp:
-	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c -o $(BUILD_DIR)/$*.o $(SRC_DIR)/$*.cpp
+	$(CXX) -O3 -Wall -Wextra -fPIC -I/home/cpd19828/boost_1_50_0/ -L/home/cpd19828/boost_1_50_0/stage/lib -c -o build/$*.o src/$*.cpp -lpapi
 
 #event.o: event.cpp event.hpp
 #	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c event.cpp
