@@ -12,7 +12,7 @@ LIB_DIR = lib
 #default: pal_lib
 
 $*.o: $(SRC_DIR)/%.cpp
-	$(CXX)  $(CXX_FLAGS) $(LIB_FLAGS) $< -c -o $(BUILD_DIR)$*.o $@ $(PAPI_FLAGS)
+	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) $< -c -o $(BUILD_DIR)$*.o $@ $(PAPI_FLAGS)
 
 #event.o: event.cpp event.hpp
 #	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c event.cpp
