@@ -9,7 +9,7 @@ BUILD_DIR = build
 SRC_DIR = src
 LIB_DIR = lib
 
-default: pal_lib
+#default: pal_lib
 
 $*.cpp:
 	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c -o $(BUILD_DIR)/$*.o $(SRC_DIR)/$*.cpp
