@@ -26,7 +26,7 @@ bool Measure::start (void) {
 
 	retval = PAPI_start(eventset[event_number]);
 
-	if (unlikely(retval != PAPI_OK) {
+	if (unlikely(retval != PAPI_OK)) {
 		error = PAPI_strerror(retval);
 
 		cerr << "PAL | Measure: error measuring event - " << error << endl;
