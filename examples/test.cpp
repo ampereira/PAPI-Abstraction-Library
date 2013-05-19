@@ -23,7 +23,7 @@ int main (int argc, char **argv) {
 
 	EventSet pal (vst.size());
     pal.create(vst);
-    Measure mm (pal);
+    Measure mm (pal,2);
 
     for (unsigned i = 0; i < 1; ++i) {
         float a = 0;
