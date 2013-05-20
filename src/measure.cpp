@@ -28,6 +28,7 @@ bool Measure::start (void) {
 
 	if (unlikely(retval != PAPI_OK)) {
 		error = PAPI_strerror(retval);
+	cout << "aqui" << endl;
 
 		cerr << "PAL | Measure: error measuring event - " << error << endl;
 		cerr << "PAL | Measure: skipping event." << endl;
@@ -48,8 +49,8 @@ bool Measure::stop (void) {
 	if (unlikely(retval != PAPI_OK)) {
 		error = PAPI_strerror(retval);
 
-		cerr << "PAL | Measure: error measuring event2 - " << error << endl;
-		cerr << "PAL | Measure: skipping event2." << endl;
+		cerr << "PAL | Measure: error measuring event - " << error << endl;
+		cerr << "PAL | Measure: skipping event." << endl;
 
 		++event_number;
 		return false;
