@@ -92,7 +92,6 @@ bool EventSet::create (vector<string> evts) {
 		}
 	}
 	total_events = it;
-	cout << endl << endl;
 
 	return true;
 }
