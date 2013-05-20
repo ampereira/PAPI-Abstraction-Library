@@ -24,8 +24,8 @@ eventset.o: $(SRC_DIR)/eventset.cpp $(SRC_DIR)/eventset.hpp $(SRC_DIR)/event.hpp
 measure.o: $(SRC_DIR)/measure.cpp $(SRC_DIR)/measure.hpp $(SRC_DIR)/eventset.hpp
 	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c -o $(BUILD_DIR)/measure.o $(SRC_DIR)/measure.cpp $(PAPI_FLAGS)
 
-pal.o: $(SRC_DIR)/pal.cpp $(SRC_DIR)/pal.hpp $(SRC_DIR)/measure.hpp event.o errors.o eventset.o measure.o
-	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c -o $(BUILD_DIR)/pal.o build/event.o build/eventset.o build/errors.o build/measure.o $(SRC_DIR)/pal.cpp $(PAPI_FLAGS)
+pal.o: $(SRC_DIR)/pal.cpp $(SRC_DIR)/pal.hpp $(SRC_DIR)/measure.hpp
+	$(CXX) $(CXX_FLAGS) $(LIB_FLAGS) -c -o $(BUILD_DIR)/pal.o $(SRC_DIR)/pal.cpp $(PAPI_FLAGS)
 
 #pal: event.o eventset.o errors.o measure.o pal.o
 #	$(CXX) -shared -Wl,-soname,libpal.so -o libpal.so $(BUILD_DIR)/pal.o $(BUILD_DIR)/event.o $(BUILD_DIR)/eventset.o $(BUILD_DIR)/errors.o $(BUILD_DIR)/measure.o $(PAPI_FLAGS)
@@ -34,8 +34,8 @@ pal.o: $(SRC_DIR)/pal.cpp $(SRC_DIR)/pal.hpp $(SRC_DIR)/measure.hpp event.o erro
 #test: pal $(TEST_DIR)/test.cpp
 #	$(CXX) -g -Wall -Wextra -o examples/test.out -L /home/cpd19828/PAPI-Abstraction-Library/lib -lpal examples/test.cpp
 
-test2: pal.o $(TEST_DIR)/test.cpp
-	$(CXX) -g -Wall -Wextra -o examples/test.out build/pal.o examples/test.cpp
+test2: pal.o event.o errors.o eventset.o measure.o $(TEST_DIR)/test.cpp
+	$(CXX) -g -Wall -Wextra -o examples/test.out build/pal.o build/event.o build/eventset.o build/errors.o build/measure.o examples/test.cpp
 
 clean:
 	rm -f $(BUILD_DIR)/*.o $(LIB_DIR)/*
