@@ -19,9 +19,9 @@ int main (int argc, char **argv) {
     }
 
 
-    string st1 = "PAPI_TOT_INS";
+    string st1 = "PAPI_TOT_CYC";
     vst2.push_back(st1);
-    string st2 = "PAPI_TOT_CYC";
+    string st2 = "PAPI_TOT_INS";
     vst2.push_back(st2);
 
 	int m_id = PAL::Counters::new_measure (vst2);
