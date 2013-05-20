@@ -16,10 +16,6 @@ namespace PAL {
 		bool stop_measure (unsigned);
 		void print_results (unsigned);
 	}
-
-	namespace Time {
-
-	}
 }
 
 #endif

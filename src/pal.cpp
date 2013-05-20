@@ -39,8 +39,4 @@ namespace PAL {
 			measurements[m_id].print();
 		}
 	}
-
-	namespace Time {
-
-	}
 }
