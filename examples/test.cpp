@@ -18,7 +18,7 @@ int main (int argc, char **argv) {
         return -1;
     }
 
-	int m_id = PAL::Counters::new_measure (vst.size());
+	int m_id = PAL::Counters::new_measure (vst);
 
     for (unsigned i = 0; i < 1; ++i) {
         float a = 0;
