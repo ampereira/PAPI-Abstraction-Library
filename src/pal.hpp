@@ -4,6 +4,7 @@
 #include "measure.hpp"
 #include <cstdlib>
 #include <string>
+#include <papi.h>
 
 
 namespace PAL {
