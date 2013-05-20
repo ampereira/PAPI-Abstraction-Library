@@ -10,7 +10,7 @@ namespace PAL {
 				int retval = PAPI_library_init(PAPI_VER_CURRENT);
 				
 				if (retval != PAPI_OK) {
-					error = PAPI_strerror(retval);
+					char *error = PAPI_strerror(retval);
 
 					cerr << "PAL | Error initializing PAPI - " << error << endl;
 
