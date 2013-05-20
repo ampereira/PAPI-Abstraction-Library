@@ -70,7 +70,7 @@ bool Measure::stop (void) {
 			}
 		} else {
 			if (event_number < eventset.size() - 1){
-				cout << "Valores1 " << event_number << endl;
+				cout << "Valores1 " << event_number <<" - " << eventset.size() << endl;
 				++event_number;
 			} 
 
