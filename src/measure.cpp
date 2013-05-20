@@ -61,7 +61,7 @@ bool Measure::stop (void) {
 				++event_rep;
 			else {
 				event_rep = 0;
-				++eventnumber;
+				++event_number;
 			}
 		} else if (event_number < eventset.size()){
 			++event_number;
