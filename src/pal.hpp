@@ -9,9 +9,6 @@
 
 namespace PAL {
 	namespace Counters {
-		bool lib_initialized = false;
-		std::vector<EventSet> event_sets;
-		std::vector<Measure> measurements;
 
 		int new_measure (std::vector<std::string>);
 		bool start_measure (unsigned);
