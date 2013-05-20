@@ -58,7 +58,6 @@ bool Measure::stop (void) {
 	} else {
 
 		for (unsigned i = 0; i < eventset.size(); ++i) {
-			cout << "Valores " << event_number << endl;
 			eventset.add_result(event_number + i, (long long unsigned) counter_value[i]);
 		}
 
@@ -71,8 +70,10 @@ bool Measure::stop (void) {
 			}
 		} else {
 			if (event_number < eventset.size() - 1){
+				cout << "Valores1 " << event_number << endl;
 				++event_number;
 			} else {
+				cout << "Valores2 " << event_number << " - " << repetitions << endl;
 				++repetitions;
 				event_number = 0;
 			}
