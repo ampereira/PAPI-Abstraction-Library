@@ -42,7 +42,6 @@ bool Measure::stop (void) {
 	int retval;
 	char *error;
 	long long int counter_value [eventset.size()];
-	cout << "TAMANHO " << eventset.size() << endl;
 
 	retval = PAPI_stop(eventset[event_number], counter_value);
 
@@ -55,7 +54,9 @@ bool Measure::stop (void) {
 		++event_number;
 		return false;
 	} else {
-		eventset.add_result(event_number, (long long unsigned) counter_value[event_number]);
+		
+		for (unsigned i = 0; i < eventset.size(); ++i)
+			eventset.add_result(event_number, (long long unsigned) counter_value[i]);
 
 		if (predefined_reps) {
 			if (event_rep < repetitions)
