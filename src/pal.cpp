@@ -6,16 +6,18 @@ namespace PAL {
 	namespace Counters {
 		int new_measure (vector<string> counters) {
 
-			if (PAPI_is_initialized() == PAPI_NOT_INITED) {
+			if (!lib_initialized) {
 				int retval = PAPI_library_init(PAPI_VER_CURRENT);
 				
 				if (retval != PAPI_OK) {
-					char *error = PAPI_strerror(retval);
+					char *error;
+					error = PAPI_strerror(retval);
 
 					cerr << "PAL | Error initializing PAPI - " << error << endl;
 
 					return -1;
-				}
+				} else
+					lib_initialized = true;
 			}
 			
 			EventSet ev (counters);

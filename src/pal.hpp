@@ -8,6 +8,7 @@
 
 namespace PAL {
 	namespace Counters {
+		bool lib_initialized = false;
 		std::vector<EventSet> event_sets;
 		std::vector<Measure> measurements;
 
