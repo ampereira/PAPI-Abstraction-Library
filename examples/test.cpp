@@ -27,6 +27,7 @@ int main (int argc, char **argv) {
 
     for (unsigned i = 0; i < 3; ++i) {
         float a = 0;
+        cout << "Iteracao " << i << endl;
         mm.start();
         a++;
         ++a;
