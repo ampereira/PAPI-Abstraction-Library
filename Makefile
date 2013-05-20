@@ -29,7 +29,7 @@ pal: event.o eventset.o errors.o measure.o
 	@mv libpal.so $(LIB_DIR)/libpal.so
 
 test: pal $(TEST_DIR)/test.cpp
-	$(CXX) $(CXX_FLAGS) -o $(TEST_DIR)/test.out -L $(LIB_DIR) -lpal $(TEST_DIR)/test.cpp
+	$(CXX) -O3 -Wall -Wextra -o examples/test.out -L /home/cpd19828/PAPI-Abstraction-Library/lib -lpal examples/test.cpp
 
 clean:
 	rm -f $(BUILD_DIR)/*.o $(LIB_DIR)/*
