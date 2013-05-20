@@ -72,7 +72,9 @@ bool Measure::stop (void) {
 			if (event_number < eventset.size() - 1){
 				cout << "Valores1 " << event_number << endl;
 				++event_number;
-			} else if(event_number == eventset.size() -1) {
+			} 
+
+			if(event_number == eventset.size() - 2) {
 				cout << "Valores2 " << event_number << " - " << repetitions << endl;
 				++repetitions;
 				event_number = 0;
