@@ -5,8 +5,8 @@ using namespace std;
 namespace PAL {
 	namespace Counters {
 		int new_measure (vector<string> counters) {
-
-			if (!lib_initialized) {
+PAPI_library_init(PAPI_VER_CURRENT);
+			/*if (!lib_initialized) {
 				int retval = PAPI_library_init(PAPI_VER_CURRENT);
 				
 				if (retval != PAPI_OK) {
@@ -18,7 +18,7 @@ namespace PAL {
 					return -1;
 				} else
 					lib_initialized = true;
-			}
+			}*/
 			
 			EventSet ev (counters);
 			Measure mm (ev);
