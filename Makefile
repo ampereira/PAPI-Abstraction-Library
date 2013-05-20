@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CXX = g++
-CXX_FLAGS = -O3 -Wall -Wextra 
+CXX_FLAGS = -g -Wall -Wextra 
 LIB_FLAGS = -fPIC -I/home/cpd19828/boost_1_50_0/ -L/home/cpd19828/boost_1_50_0/stage/lib
 PAPI_FLAGS = -lpapi
 
@@ -32,7 +32,7 @@ pal: event.o eventset.o errors.o measure.o pal.o
 	@mv libpal.so $(LIB_DIR)/libpal.so
 
 test: pal $(TEST_DIR)/test.cpp
-	$(CXX) -O3 -Wall -Wextra -o examples/test.out -L /home/cpd19828/PAPI-Abstraction-Library/lib -lpal examples/test.cpp
+	$(CXX) -g -Wall -Wextra -o examples/test.out -L /home/cpd19828/PAPI-Abstraction-Library/lib -lpal examples/test.cpp
 
 clean:
 	rm -f $(BUILD_DIR)/*.o $(LIB_DIR)/*
