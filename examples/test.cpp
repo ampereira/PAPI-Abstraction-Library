@@ -25,7 +25,7 @@ int main (int argc, char **argv) {
     pal.create(vst);
     Measure mm (pal,2);
 
-    for (unsigned i = 0; i < 1; ++i) {
+    for (unsigned i = 0; i < mm.iterations(); ++i) {
         float a = 0;
         mm.start();
         a++;
