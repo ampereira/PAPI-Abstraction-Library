@@ -23,11 +23,10 @@ int main (int argc, char **argv) {
 
 	EventSet pal (vst.size());
     pal.create(vst);
-    Measure mm (pal);
+    Measure mm (pal,2);
 
-    for (unsigned i = 0; i < 3; ++i) {
+    for (unsigned i = 0; i < mm.iterations(); ++i) {
         float a = 0;
-        cout << "Iteracao " << i << endl;
         mm.start();
         a++;
         ++a;

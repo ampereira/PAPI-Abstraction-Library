@@ -64,7 +64,6 @@ bool Measure::stop (void) {
 				++event_number;
 			}
 		} else {
-			//cerr << "aqui " << event_number << " - " << eventset.size() << endl;
 			if (event_number < eventset.size() - 1){
 				++event_number;
 			} else {
