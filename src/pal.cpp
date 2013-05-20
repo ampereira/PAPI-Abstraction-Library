@@ -4,28 +4,9 @@ using namespace std;
 
 namespace PAL {
 	namespace Counters {
-		bool lib_initialized = false;
-		//std::vector<EventSet> event_sets;
 		std::vector<Measure> measurements;
 
 		int new_measure (vector<string> counters) {
-
-			/*
-			if (!lib_initialized) {
-				int retval = PAPI_library_init(PAPI_VER_CURRENT);
-				cout << "chegou 1" << endl;
-				if (retval != PAPI_OK) {
-				cout << "chegou 2" << endl;
-					char *error;
-					error = PAPI_strerror(retval);
-
-					cerr << "PAL | Error initializing PAPI - " << error << " - " << retval << endl;
-
-					return -1;
-				} else
-					lib_initialized = true;
-			}
-			*/
 
 			PAPI_library_init(PAPI_VER_CURRENT);
 			

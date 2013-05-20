@@ -6,11 +6,11 @@
 using namespace std;
 
 int main (int argc, char **argv) {
-    vector< string > vst;
+    vector< string > vst, vst2;
 
     if (argc > 1) {
         for (unsigned i = 1; i < (unsigned) argc; ++i) {
-            string st = argv[i];
+            string st = "PAPI_TOT_INS";
             vst.push_back(st);
         }
     } else {
@@ -18,16 +18,22 @@ int main (int argc, char **argv) {
         return -1;
     }
 
-	int m_id = PAL::Counters::new_measure (vst);
 
-    for (unsigned i = 0; i < 1; ++i) {
-        float a = 0;
-        PAL::Counters::start_measure(m_id);
-        a++;
-        ++a;
-        ++a;
-        PAL::Counters::stop_measure(m_id);
-    }
+    string st1 = "PAPI_TOT_INS";
+    vst2.push_back(st1);
+    string st2 = "PAPI_TOT_CYC";
+    vst2.push_back(st2);
+
+	int m_id = PAL::Counters::new_measure (vst2);
+
+
+	float a = 0;
+	PAL::Counters::start_measure(m_id);
+	a++;
+	++a;
+	++a;
+	PAL::Counters::stop_measure(m_id);
+
 
     PAL::Counters::print_results(m_id);
 
