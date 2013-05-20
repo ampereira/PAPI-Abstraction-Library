@@ -35,7 +35,7 @@ pal.o: $(SRC_DIR)/pal.cpp $(SRC_DIR)/pal.hpp $(SRC_DIR)/measure.hpp
 #	$(CXX) -g -Wall -Wextra -o examples/test.out -L /home/cpd19828/PAPI-Abstraction-Library/lib -lpal examples/test.cpp
 
 test2: pal.o event.o errors.o eventset.o measure.o $(TEST_DIR)/test.cpp
-	$(CXX) -g -Wall -Wextra -o examples/test.out build/pal.o build/event.o build/eventset.o build/errors.o build/measure.o examples/test.cpp
+	$(CXX) -g -Wall -Wextra -o examples/test.out build/pal.o build/event.o build/eventset.o build/errors.o build/measure.o examples/test.cpp -lpapi
 
 clean:
 	rm -f $(BUILD_DIR)/*.o $(LIB_DIR)/*
