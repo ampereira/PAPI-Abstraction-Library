@@ -5,11 +5,12 @@ using namespace std;
 namespace PAL {
 	namespace Counters {
 		bool lib_initialized = false;
-		std::vector<EventSet> event_sets;
+		//std::vector<EventSet> event_sets;
 		std::vector<Measure> measurements;
 
 		int new_measure (vector<string> counters) {
 
+			/*
 			if (!lib_initialized) {
 				int retval = PAPI_library_init(PAPI_VER_CURRENT);
 				cout << "chegou 1" << endl;
@@ -24,11 +25,13 @@ namespace PAL {
 				} else
 					lib_initialized = true;
 			}
+			*/
+
+			PAPI_library_init(PAPI_VER_CURRENT);
 			
 			EventSet ev (counters);
 			Measure mm (ev);
 
-			//event_sets.push_back(ev);
 			measurements.push_back(mm);
 
 			return measurements.size() - 1;
