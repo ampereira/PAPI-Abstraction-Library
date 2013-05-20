@@ -29,7 +29,7 @@ int main (int argc, char **argv) {
 
 
 	float a = 0;
-	for (int i = 0; i < 2; ++i) {
+	for (int i = 0; i < 5; ++i) {
 	PAL::Counters::start_measure(m_id);
 	a++;
 	++a;
