@@ -11,9 +11,9 @@ namespace PAL {
 				
 				if (retval != PAPI_OK) {
 					char *error;
-					error = PAPI_strerror(retval);
+					//error = PAPI_strerror(retval);
 
-					cerr << "PAL | Error initializing PAPI - " << error << " - " << retval << endl;
+					cerr << "PAL | Error initializing PAPI - " << /*error << " - " <<*/ retval << endl;
 
 					return -1;
 				} else
