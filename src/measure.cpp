@@ -60,9 +60,11 @@ bool Measure::stop (void) {
 			if (event_rep < repetitions)
 				++event_rep;
 			else {
-			event_rep = 0;
-			++event_number;
+				event_rep = 0;
+				++eventnumber;
 			}
+		} else if (event_number < eventset.size()){
+			++event_number;
 		} else {
 			++repetitions;
 			event_number = 0;
