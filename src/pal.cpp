@@ -4,9 +4,6 @@ using namespace std;
 
 namespace PAL {
 	namespace Counters {
-		bool lib_initialized = false;
-		std::vector<EventSet> event_sets;
-		std::vector<Measure> measurements;
 		
 		int new_measure (vector<string> counters) {
 
