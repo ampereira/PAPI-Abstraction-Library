@@ -12,7 +12,6 @@ namespace PAL {
 			
 			EventSet ev (counters);
 			Measure mm (ev);
-			cout << ev.size() << endl;
 
 			measurements.push_back(mm);
 

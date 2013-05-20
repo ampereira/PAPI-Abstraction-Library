@@ -42,6 +42,7 @@ bool Measure::stop (void) {
 	int retval;
 	char *error;
 	long long int counter_value [eventset.size()];
+	cout << "TAMANHO " << eventset.size() << endl;
 
 	retval = PAPI_stop(eventset[event_number], counter_value);
 
