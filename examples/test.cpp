@@ -1,4 +1,4 @@
-#include "../src/measure.hpp"
+#include "../src/pal.hpp"
 #include <cstdlib>
 #include <vector>
 #include <string>
@@ -18,23 +18,18 @@ int main (int argc, char **argv) {
         return -1;
     }
 
+	int m_id = PAL::Counters::new_measure (vst.size());
 
-        PAPI_library_init(PAPI_VER_CURRENT);
-
-	EventSet pal (vst.size());
-    pal.create(vst);
-    Measure mm (pal,2);
-
-    for (unsigned i = 0; i < mm.iterations(); ++i) {
+    for (unsigned i = 0; i < 1; ++i) {
         float a = 0;
-        mm.start();
+        PAL::Counters::start_measure(m_id);
         a++;
         ++a;
         ++a;
-        mm.stop();
+        PAL::Counters::stop_measure(m_id);
     }
 
-    mm.print();
+    PAL::Counters::print_results(m_id);
 
     return 0;
 }

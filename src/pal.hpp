@@ -6,11 +6,20 @@
 #include <string>
 
 
-namespace pal {
-	std::vector<EventSet> event_sets;
-	std::vector<Measure> measurements;
+namespace PAL {
+	namespace Counters {
+		std::vector<EventSet> event_sets;
+		std::vector<Measure> measurements;
 
-	Measure new_measure (std::vector<std::string>);
+		int new_measure (std::vector<std::string>);
+		bool start_measure (unsigned);
+		bool stop_measure (unsigned);
+		void print_results (unsigned);
+	}
+
+	namespace Time {
+
+	}
 }
 
 #endif
