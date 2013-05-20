@@ -34,7 +34,7 @@ pal: event.o eventset.o errors.o measure.o pal.o
 test: pal $(TEST_DIR)/test.cpp
 	$(CXX) -g -Wall -Wextra -o examples/test.out -L /home/cpd19828/PAPI-Abstraction-Library/lib -lpal examples/test.cpp
 
-test2: pal.hpp $(TEST_DIR)/test.cpp
+test2: pal.o event.o errors.o eventset.o measure.o $(TEST_DIR)/test.cpp
 	$(CXX) -g -Wall -Wextra -o examples/test.out build/pal.o build/event.o build/eventset.o build/errors.o build/measure.o examples/test.cpp
 
 clean:
