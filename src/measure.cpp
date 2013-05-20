@@ -56,7 +56,7 @@ bool Measure::stop (void) {
 	} else {
 
 		for (unsigned i = 0; i < eventset.size(); ++i) {
-			cout << "Valores " << counter_value[i] << endl;
+			cout << "Valores " << event_number << endl;
 			eventset.add_result(event_number, (long long unsigned) counter_value[i]);
 		}
 
