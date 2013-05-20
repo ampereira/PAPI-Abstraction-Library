@@ -1,5 +1,5 @@
-#ifndef _PAL
-#define _PAL
+#ifndef PAL_LIB
+#define PAL_LIB
 
 #include "measure.hpp"
 #include <cstdlib>
