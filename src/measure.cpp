@@ -55,8 +55,7 @@ bool Measure::stop (void) {
 		return false;
 	} else {
 		eventset.add_result(event_number, (long long unsigned) counter_value[event_number]);
-		
-		cerr << "aqui " << predefined_reps << endl;
+
 		if (predefined_reps) {
 			if (event_rep < repetitions)
 				++event_rep;
@@ -64,11 +63,14 @@ bool Measure::stop (void) {
 				event_rep = 0;
 				++event_number;
 			}
-		} else if (event_number < eventset.size()){
-			++event_number;
 		} else {
-			++repetitions;
-			event_number = 0;
+			cerr << "aqui " << event_number << " - " << eventset.size() << endl;
+			if (event_number < eventset.size()){
+				++event_number;
+			} else {
+				++repetitions;
+				event_number = 0;
+			}
 		}
 
 		return true;
