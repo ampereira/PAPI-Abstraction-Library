@@ -54,9 +54,11 @@ bool Measure::stop (void) {
 		++event_number;
 		return false;
 	} else {
-		
-		for (unsigned i = 0; i < eventset.size(); ++i)
+
+		for (unsigned i = 0; i < eventset.size(); ++i) {
+			cout << "Valores " << counter_value[i] << endl;
 			eventset.add_result(event_number, (long long unsigned) counter_value[i]);
+		}
 
 		if (predefined_reps) {
 			if (event_rep < repetitions)
