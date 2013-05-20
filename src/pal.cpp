@@ -12,8 +12,9 @@ namespace PAL {
 
 			if (!lib_initialized) {
 				int retval = PAPI_library_init(PAPI_VER_CURRENT);
-				
+				cout << "chegou 1" << endl;
 				if (retval != PAPI_OK) {
+				cout << "chegou 2" << endl;
 					char *error;
 					error = PAPI_strerror(retval);
 
