@@ -78,7 +78,7 @@ bool EventSet::create (vector<string> evts) {
 				return false;
 			}
 		}
-		cout << "add " << event_codes[it] << " " << eventset_size << endl;
+		
 		retval = PAPI_add_event(events[eventset_size - 1], event_codes[it]);
 
 		switch (retval) {
